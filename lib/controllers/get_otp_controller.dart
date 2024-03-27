@@ -4,8 +4,8 @@ import 'package:get/get_rx/get_rx.dart';
 
 class GetOtpController extends GetxController {
   var mobileController = TextFormField();
-  String? mobileNumber;
-  RxInt count = 0.obs;
+  var mobileNumber;
+  // RxInt count = 0.obs;
   var toggleColor = false.obs;
 
   isValidContact(String value) {

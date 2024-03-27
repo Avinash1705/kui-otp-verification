@@ -1,10 +1,12 @@
 import 'package:bama_otp_verification/ui/verify_phone_number_page.dart';
 import 'package:bama_otp_verification/utils/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
+import '../common/otp_container.dart';
 import '../controllers/get_otp_controller.dart';
 
 class GetOtpPage extends StatelessWidget {
@@ -12,7 +14,8 @@ class GetOtpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GetOtpController otpController = GetOtpController();
+    GetOtpController otpController = Get.find<GetOtpController>();
+    print(Get.find<GetOtpController>().mobileNumber);
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -30,46 +33,44 @@ class GetOtpPage extends StatelessWidget {
             ),
             TextFormField(
                 controller: otpController.mobileController.controller,
-                maxLength: 10,
+                // maxLength: 10,
+                inputFormatters: [LengthLimitingTextInputFormatter(10)],
                 decoration: InputDecoration(
                     hintText: "Enter mobile number",
                     border: OutlineInputBorder()),
                 onChanged: (value) {
                   otpController.isValidContact(value);
                   otpController.mobileNumber = value;
-                  print(otpController.mobileNumber);
+                  print("mobileNumber${otpController.mobileNumber}");
                 },
                 autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) =>
-                    otpController.isValidContact(value!)
-            ),
+                validator: (value) => otpController.isValidContact(value!)),
             SizedBox(
               height: 140,
             ),
             InkWell(
-              onTap: () =>
-              otpController.toggleColor.value ? Get.toNamed(
-                  AppRoutes.getVerifyPhoneNumberPage()):null,
-              child: Obx(() =>
-                  Container(
-                    width: 350,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: otpController.toggleColor.value
-                            ? Colors.black
-                            : Colors.grey,
-                        borderRadius: const BorderRadius.all(
-                            Radius.circular(5))),
-                    child: const Center(
-                      child: Text(
-                        "Get OTP",
-                        style: TextStyle(color: Colors.white),
-                      ),
+              onTap: () => otpController.toggleColor.value
+                  ? Get.toNamed(AppRoutes.getVerifyPhoneNumberPage())
+                  : null,
+              child: Obx(
+                () => Container(
+                  width: 350,
+                  height: 40,
+                  decoration: BoxDecoration(
+                      color: otpController.toggleColor.value
+                          ? Colors.black
+                          : Colors.grey,
+                      borderRadius: const BorderRadius.all(Radius.circular(5))),
+                  child: const Center(
+                    child: Text(
+                      "Get OTP",
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
+                ),
               ),
             ),
-            Obx(() => Text("${otpController.count}")),
+            // Obx(() => Text("${otpController.count}")),
           ],
         ),
       ),

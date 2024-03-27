@@ -1,3 +1,5 @@
+import 'package:bama_otp_verification/controllers/get_otp_controller.dart';
+import 'package:bama_otp_verification/controllers/verify_phone_controller.dart';
 import 'package:bama_otp_verification/ui/get_otp_page.dart';
 import 'package:bama_otp_verification/utils/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    init();
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -26,3 +29,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+init() {
+  Get.lazyPut(() => GetOtpController());
+  Get.lazyPut(() => VerifyPhoneController());
+}
