@@ -43,21 +43,27 @@ class VerifyPhoneNumberPage extends StatelessWidget {
                     children: [
                       OtpContainer(
                         controller: verifyPhoneController.con1,
+                        onChange: (value)=> verifyPhoneController.checkText(),
                       ),
                       OtpContainer(
                         controller: verifyPhoneController.con2,
+                        onChange: (value) => verifyPhoneController.checkText(),
                       ),
                       OtpContainer(
                         controller: verifyPhoneController.con3,
+                        onChange: (value) => verifyPhoneController.checkText(),
                       ),
                       OtpContainer(
                         controller: verifyPhoneController.con4,
+                        onChange: (value) => verifyPhoneController.checkText(),
                       ),
                       OtpContainer(
                         controller: verifyPhoneController.con5,
+                        onChange: (value) => verifyPhoneController.checkText(),
                       ),
                       OtpContainer(
                         controller: verifyPhoneController.con6,
+                        onChange: (value) => verifyPhoneController.checkText(),
                       ),
                     ],
                   ),

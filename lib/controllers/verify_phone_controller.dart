@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,16 +15,13 @@ class VerifyPhoneController extends GetxController {
   checkText() {
     finalOtp =
         con1.text + con2.text + con3.text + con4.text + con5.text + con6.text;
-    print("otp len ${finalOtp.length}");
     verifyOtp(finalOtp);
   }
 
   verifyOtp(String otp) {
     if (otp.length == 6 && otp == "123456") {
-      print("correct otp");
       verifyColor.value = Colors.green;
     } else if (otp != "123456" && otp.length == 6) {
-      print("wrong otp");
       verifyColor.value = Colors.red;
     } else {
       verifyColor.value = Colors.grey;

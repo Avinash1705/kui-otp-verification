@@ -20,7 +20,6 @@ class OtpContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VerifyPhoneController verifyPhoneController = VerifyPhoneController();
     return Container(
       width: 50,
       height: 100,
@@ -29,7 +28,7 @@ class OtpContainer extends StatelessWidget {
         keyboardType: TextInputType.number,
         controller: controller,
         // initialValue: initialValue.toString(),
-        // onChanged: (value) => onChange(value),
+        onChanged: (value) => onChange(value),
         inputFormatters: [LengthLimitingTextInputFormatter(1)],
         decoration: InputDecoration(border: OutlineInputBorder()),
       ),
