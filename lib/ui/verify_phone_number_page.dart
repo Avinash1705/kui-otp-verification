@@ -43,27 +43,75 @@ class VerifyPhoneNumberPage extends StatelessWidget {
                     children: [
                       OtpContainer(
                         controller: verifyPhoneController.con1,
-                        onChange: (value)=> verifyPhoneController.checkText(),
+                        onChange: (value) {
+                          if(verifyPhoneController.con1.text != ""){
+                            FocusScope.of(context).nextFocus();
+                          }
+                          else {
+                            FocusScope.of(context).previousFocus();
+                          }
+                          verifyPhoneController.checkText(context);
+                        },
                       ),
                       OtpContainer(
                         controller: verifyPhoneController.con2,
-                        onChange: (value) => verifyPhoneController.checkText(),
+                        onChange: (value) {
+                          if(verifyPhoneController.con2.text != ""){
+                            FocusScope.of(context).nextFocus();
+                          }
+                          else {
+                            FocusScope.of(context).previousFocus();
+                          }
+                          verifyPhoneController.checkText(context);
+                        },
                       ),
                       OtpContainer(
                         controller: verifyPhoneController.con3,
-                        onChange: (value) => verifyPhoneController.checkText(),
+                        onChange: (value) {
+                          if(verifyPhoneController.con3.text != ""){
+                            FocusScope.of(context).nextFocus();
+                          }
+                          else {
+                            FocusScope.of(context).previousFocus();
+                          }
+                          verifyPhoneController.checkText(context);
+                        },
                       ),
                       OtpContainer(
                         controller: verifyPhoneController.con4,
-                        onChange: (value) => verifyPhoneController.checkText(),
+                        onChange: (value) {
+                          if(verifyPhoneController.con4.text != ""){
+                            FocusScope.of(context).nextFocus();
+                          }
+                          else {
+                            FocusScope.of(context).previousFocus();
+                          }
+                          verifyPhoneController.checkText(context);
+                        },
                       ),
                       OtpContainer(
                         controller: verifyPhoneController.con5,
-                        onChange: (value) => verifyPhoneController.checkText(),
+                        onChange: (value) {
+                          if(verifyPhoneController.con5.text != ""){
+                            FocusScope.of(context).nextFocus();
+                          }
+                          else {
+                            FocusScope.of(context).previousFocus();
+                          }
+                          verifyPhoneController.checkText(context);
+                        },
                       ),
                       OtpContainer(
                         controller: verifyPhoneController.con6,
-                        onChange: (value) => verifyPhoneController.checkText(),
+                        onChange: (value) {
+                          if(verifyPhoneController.con6.text != ""){
+                            FocusScope.of(context).nextFocus();
+                          }
+                          else {
+                            FocusScope.of(context).previousFocus();
+                          }
+                          verifyPhoneController.checkText(context);
+                        },
                       ),
                     ],
                   ),
@@ -74,7 +122,7 @@ class VerifyPhoneNumberPage extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  verifyPhoneController.checkText();
+                  verifyPhoneController.checkText(context);
                 },
                 child: Obx(
                   () => Container(

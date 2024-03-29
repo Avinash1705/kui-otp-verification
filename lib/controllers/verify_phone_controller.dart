@@ -12,9 +12,21 @@ class VerifyPhoneController extends GetxController {
   TextEditingController con5 = TextEditingController();
   TextEditingController con6 = TextEditingController();
 
-  checkText() {
+
+  checkText(BuildContext context) {
+
     finalOtp =
         con1.text + con2.text + con3.text + con4.text + con5.text + con6.text;
+
+    // if(finalOtp.length < 6){
+    //
+    // }
+    // else if(finalOtp.length == 6){
+    //   FocusScope.of(context).unfocus();
+    // }
+    // else {
+    //   FocusScope.of(context).previousFocus();
+    // }
     verifyOtp(finalOtp);
   }
 
@@ -28,7 +40,9 @@ class VerifyPhoneController extends GetxController {
     }
     update();
   }
+  pasteOtp(){
 
+  }
 // verifyOtp(int i, String value) {
 //   String urOtp = "";
 //   //let 123456 is correct otp

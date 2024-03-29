@@ -5,17 +5,12 @@ import 'package:flutter/services.dart';
 import '../controllers/verify_phone_controller.dart';
 
 class OtpContainer extends StatelessWidget {
-  String? initialValue;
-  int? index;
   var onChange;
   var controller;
 
   OtpContainer(
       {Key? key,
-      this.initialValue,
-      this.index,
-      this.onChange,
-      @required this.controller})
+      this.onChange,required this.controller})
       : super(key: key);
 
   @override
@@ -24,10 +19,9 @@ class OtpContainer extends StatelessWidget {
       width: 50,
       height: 100,
       margin: EdgeInsets.all(5),
-      child: TextFormField(
+      child: TextField(
         keyboardType: TextInputType.number,
         controller: controller,
-        // initialValue: initialValue.toString(),
         onChanged: (value) => onChange(value),
         inputFormatters: [LengthLimitingTextInputFormatter(1)],
         decoration: InputDecoration(border: OutlineInputBorder()),
