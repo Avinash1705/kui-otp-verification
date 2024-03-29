@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -7,8 +8,15 @@ class OtpContainer extends StatelessWidget {
   String? initialValue;
   int? index;
   var onChange;
+  var controller;
 
-  OtpContainer({Key? key, this.initialValue,this.index,this.onChange}) : super(key: key);
+  OtpContainer(
+      {Key? key,
+      this.initialValue,
+      this.index,
+      this.onChange,
+      @required this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +27,9 @@ class OtpContainer extends StatelessWidget {
       margin: EdgeInsets.all(5),
       child: TextFormField(
         keyboardType: TextInputType.number,
-        // controller: verifyPhoneController.otp,
-        initialValue: initialValue.toString(),
-        onChanged: (value) => onChange(value),
+        controller: controller,
+        // initialValue: initialValue.toString(),
+        // onChanged: (value) => onChange(value),
         inputFormatters: [LengthLimitingTextInputFormatter(1)],
         decoration: InputDecoration(border: OutlineInputBorder()),
       ),

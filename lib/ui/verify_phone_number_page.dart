@@ -31,45 +31,53 @@ class VerifyPhoneNumberPage extends StatelessWidget {
               SizedBox(
                 height: 40,
               ),
-            Obx( () => Container(
-                width: double.maxFinite,
-                height: 150,
-                decoration: BoxDecoration(
-                    color: verifyPhoneController.verifyColor.value),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    for (int i = 0; i <= 5; i++)
+              Obx(
+                () => Container(
+                  width: double.maxFinite,
+                  height: 150,
+                  decoration: BoxDecoration(
+                      color: verifyPhoneController.verifyColor.value),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
                       OtpContainer(
-                        initialValue: "",
-                        index: i,
-                        onChange: (value) {
-                          verifyPhoneController.updateOtp(i,value);
-                          if (verifyPhoneController.otpMap.length == 6) {
-                            verifyPhoneController.verifyOtp(
-                                i,value);
-                          }
-                        },
+                        controller: verifyPhoneController.con1,
                       ),
-                  ],
+                      OtpContainer(
+                        controller: verifyPhoneController.con2,
+                      ),
+                      OtpContainer(
+                        controller: verifyPhoneController.con3,
+                      ),
+                      OtpContainer(
+                        controller: verifyPhoneController.con4,
+                      ),
+                      OtpContainer(
+                        controller: verifyPhoneController.con5,
+                      ),
+                      OtpContainer(
+                        controller: verifyPhoneController.con6,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
               SizedBox(
                 height: 140,
               ),
               InkWell(
                 onTap: () {
-
+                  verifyPhoneController.checkText();
                 },
-                child: Obx(() =>
-                  Container(
+                child: Obx(
+                  () => Container(
                     width: 350,
                     height: 40,
                     decoration: BoxDecoration(
                         color: verifyPhoneController.verifyColor.value,
-                        borderRadius: const BorderRadius.all(Radius.circular(5))),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(5))),
                     child: const Center(
                       child: Text(
                         "Get OTP",
